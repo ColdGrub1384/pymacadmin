@@ -56,5 +56,5 @@ for k in CARBON_DEFINES:
     v = CARBON_DEFINES[k]
     if isinstance(v, str):
         assert(len(v) == 4)
-        v = ctypes.c_ulong(struct.unpack(">L", v)[0])
+        v = ctypes.c_ulong(struct.unpack(">L", v.encode())[0])
     setattr(sys.modules[__name__], k, v)
